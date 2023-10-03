@@ -37,8 +37,6 @@ SELECT * FROM animals;
 -- Roll back the transaction to revert the update
 ROLLBACK;
 
-END;
-
 
 --Inside a transaction:
 --Update the animals table by setting the species column to digimon for all animals that have a name ending in mon.
@@ -65,8 +63,6 @@ SELECT * FROM animals;
 -- Commit the transaction
 COMMIT;
 
-END;
-
 
 --Inside a transaction delete all records in the animals table, then roll back the transaction.
 --After the rollback verify if all records in the animals table still exists.
@@ -76,13 +72,14 @@ BEGIN;
 -- Delete all records from the "animals" table
 DELETE FROM animals;
 
+-- Verify the change by selecting the updated data
+SELECT * FROM animals;
+
 -- Roll back the transaction to undo the deletion
 ROLLBACK;
 
 --Verify all records in the animals table still exists
 SELECT * FROM animals;
-
-END;
 
 --Inside a transaction:
 --Delete all animals born after Jan 1st, 2022.
@@ -109,11 +106,11 @@ ROLLBACK TO weight_update_savepoint;
 -- Update all animals' weights that are negative to be their weight multiplied by -1
 UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 
+-- Verify the change by selecting the updated data
+SELECT * FROM animals;
+
 -- Commit the transaction
 COMMIT;
-
-END;
-
 
 --Write queries to answer the following questions:
 --How many animals are there?
