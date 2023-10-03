@@ -4,7 +4,7 @@ CREATE TABLE animals (
 	name VARCHAR(255) NOT NULL,
 	date_of_birth DATE,
 	escape_attempts INTEGER,
-	nautered BOOLEAN,
+	neutered BOOLEAN,
 	weight_kg DECIMAL(10,2)
 );
 
