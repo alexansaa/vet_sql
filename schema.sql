@@ -1,5 +1,9 @@
-/* Database schema to keep the structure of entire database. */
-
+-- Create animals table
 CREATE TABLE animals (
-    name varchar(100)
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+	date_of_birth DATE,
+	escape_attempts INTEGER,
+	nautered BOOLEAN,
+	weight_kg DECIMAL(10,2)
 );
