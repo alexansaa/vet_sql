@@ -82,5 +82,28 @@ WHERE species_id IS NULL;
 
 SELECT * FROM animals;
 
+-- Modify inserted animals to include owner information (owner_id):
+-- Update animals owned by Sam Smith
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Sam Smith')
+WHERE name = 'Agumon';
 
+-- Update animals owned by Jennifer Orwell
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Jennifer Orwell')
+WHERE name IN ('Gabumon', 'Pikachu');
 
+-- Update animals owned by Bob
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Bob')
+WHERE name IN ('Devimon', 'Plantmon');
+
+-- Update animals owned by Melody Pond
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Melody Pond')
+WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
+
+-- Update animals owned by Dean Winchester
+UPDATE animals
+SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
+WHERE name IN ('Angemon', 'Boarmon');
