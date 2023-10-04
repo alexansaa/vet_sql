@@ -11,3 +11,10 @@ CREATE TABLE animals (
 -- Add the new "species" column
 ALTER TABLE animals
 ADD COLUMN species varchar(255);
+
+-- Crate owners table
+CREATE TABLE owners (
+    id serial PRIMARY KEY,
+    full_name varchar(255) NOT NULL,
+    age integer
+);
