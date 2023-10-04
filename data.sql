@@ -41,3 +41,46 @@ VALUES ('Blossom', '1998-10-13', 3, true, 17.0);
 -- Insert data for Ditto
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES ('Ditto', '2022-05-14', 4, true, 22.0);
+
+-- Inserting data into owners table
+INSERT INTO owners (full_name, age)
+VALUES ('Sam Smith', 34);
+
+INSERT INTO owners (full_name, age)
+VALUES ('Jennifer Orwell', 19);
+
+INSERT INTO owners (full_name, age)
+VALUES ('Bob', 45);
+
+INSERT INTO owners (full_name, age)
+VALUES ('Melody Pond', 77);
+
+INSERT INTO owners (full_name, age)
+VALUES ('Dean Winchester', 14);
+
+INSERT INTO owners (full_name, age)
+VALUES ('Jodie Whittaker', 38);
+
+SELECT * FROM owners;
+
+-- Insert data into species table
+INSERT INTO species (name)
+VALUES ('Pokemon');
+
+INSERT INTO species (name)
+VALUES ('Digimon');
+
+-- Update animals with names ending in "mon" to have species_id of Digimon
+UPDATE animals
+SET species_id = (SELECT id FROM species WHERE name = 'Digimon')
+WHERE name LIKE '%mon';
+
+-- Update all other animals to have species_id of Pokemon
+UPDATE animals
+SET species_id = (SELECT id FROM species WHERE name = 'Pokemon')
+WHERE species_id IS NULL;
+
+SELECT * FROM animals;
+
+
+
