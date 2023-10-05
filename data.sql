@@ -70,18 +70,6 @@ VALUES ('Pokemon');
 INSERT INTO species (name)
 VALUES ('Digimon');
 
--- Update animals with names ending in "mon" to have species_id of Digimon
-UPDATE animals
-SET species_id = (SELECT id FROM species WHERE name = 'Digimon')
-WHERE name LIKE '%mon';
-
--- Update all other animals to have species_id of Pokemon
-UPDATE animals
-SET species_id = (SELECT id FROM species WHERE name = 'Pokemon')
-WHERE species_id IS NULL;
-
-SELECT * FROM animals;
-
 -- Modify inserted animals to include owner information (owner_id):
 -- Update animals owned by Sam Smith
 UPDATE animals
