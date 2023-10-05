@@ -95,3 +95,10 @@ WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
 UPDATE animals
 SET owner_id = (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
 WHERE name IN ('Angemon', 'Boarmon');
+
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    age INTEGER,
+    date_of_graduation DATE
+);
